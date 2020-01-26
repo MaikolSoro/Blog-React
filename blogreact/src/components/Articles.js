@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 import axios from "axios";
 import Global from '../Global';
 import imagen from "../assets/images/default.png";
 import Moment from 'react-moment';
 import 'moment/locale/es';
-
 
 class Articles extends Component {
 
@@ -19,7 +19,14 @@ class Articles extends Component {
     {
       /*Antes de imprimir la vista cargame el metodo*/
     }
-    this.getArticles();
+    var home = this.props.home;
+    if(home){
+      this.getLastArticles();
+
+    }else{
+        this.getArticles();
+    }
+  
   }
   getArticles = () => {
     axios.get(this.url+"articles").then(res => {
@@ -27,9 +34,19 @@ class Articles extends Component {
         articles: res.data.articles,
         status: "success"
       });
-      console.log(this.State);
+     
     });
-    console.log("get articles");
+    
+  };
+  getLastArticles = () => {
+    axios.get(this.url+"articles/last").then(res => {
+      this.setState({
+        articles: res.data.articles,
+        status: "success"
+      });
+     
+    });
+    
   };
   render() {
 
@@ -56,7 +73,7 @@ class Articles extends Component {
                 <span className="date">
                <Moment locale="es" fromNow>{article.date}</Moment>
                 </span>
-             <a href="#">Leer más</a>
+             <Link to={'/blog/articulo/'+article._id}>Leer más</Link>
 
              <div className="clearfix"></div>
         </article>
