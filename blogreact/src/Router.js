@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import SeccionPruebas from "./components/SeccionPruebas";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
+import Formulario from "./components/Formulario";
+
 class Router extends Component {
   render() {
     return (
@@ -20,6 +22,7 @@ class Router extends Component {
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/blog" component={Blog} />
+          <Route exact path="/formulario" component={Formulario} />
           <Route exact path="/ruta-prueba" component={MiComponente} />
 
           <Route component={Error} />
