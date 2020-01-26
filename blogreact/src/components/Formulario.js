@@ -57,8 +57,9 @@ class Formulario extends Component {
               </div>
             }
 
-            {/*Crear Formulario*/}
-            <form className="mid-form" onSubmit={this.recibirFormulario}>
+            
+            {/*Crear Formulario el onchange es el evento de escribir y se muestre dinamica */}
+            <form className="mid-form" onSubmit={this.recibirFormulario} onChange={this.recibirFormulario}>
               <div className="form-group">
                 <label htmlFor="nombre">Nombre</label>
                 <input type="text" name="nombre" ref={this.nombreRef} />
