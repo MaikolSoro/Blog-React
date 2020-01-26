@@ -20,9 +20,12 @@ class Articles extends Component {
       /*Antes de imprimir la vista cargame el metodo*/
     }
     var home = this.props.home;
+    var search = this.props.search;
     if(home){
       this.getLastArticles();
 
+    }else if(search && search != null && search != undefined){
+       this.getArticlesBySearch(search);
     }else{
         this.getArticles();
     }
@@ -47,6 +50,21 @@ class Articles extends Component {
      
     });
     
+  };
+  getArticlesBySearch = (searched) => {
+    axios.get(this.url+"search/"+ searched).then(res => {
+       
+            this.setState({
+                articles: res.data.articles,
+                status: "success"
+              });
+            }).catch(err =>{
+                this.setState({
+                    articles: [],
+                    status: "success"
+                  });
+              });
+   
   };
   render() {
 
