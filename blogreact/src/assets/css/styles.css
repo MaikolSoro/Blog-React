@@ -186,6 +186,27 @@ body {
 .btn-success:hover{
     background:black;
 }
+.btn-warning{
+    background: rgb(250,171,0) !important;
+    color: white !important;
+    text-decoration: none;
+    float: left;
+}
+
+.btn-danger{
+    background: rgb(250,0,0)!important;
+    color: white !important;
+    text-decoration: none;
+    margin-right: 20px;
+    float: left;
+}
+.btn-warning:hover,.btn-danger:hover{
+    transition: all 300ms;
+    opacity: 0.8;
+}
+.buttons{
+    margin-top: 30px;
+}
 
 .mid-form{
     width: 50%;
