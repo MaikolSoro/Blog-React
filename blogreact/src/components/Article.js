@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import Global from "../Global";
-import Sidebar from "./Sidebar";
-import imagen from "../assets/images/default.png";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Global from '../Global';
+import Sidebar from './Sidebar';
+import imagen from '../assets/images/default.png';
 
 import Moment from 'react-moment';
 import 'moment/locale/es';

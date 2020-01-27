@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import MiComponente from "../components/MiComponente";
+import MiComponente from '../components/MiComponente';
 
 class SeccionPruebas extends Component {
 

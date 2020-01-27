@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Slider from "./Slider";
-import Sidebar from "./Sidebar";
+import React, { Component } from 'react';
+import Slider from './Slider';
+import Sidebar from './Sidebar';
 import Articles from './Articles';
 
 class Home extends Component {

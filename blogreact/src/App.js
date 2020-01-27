@@ -1,5 +1,5 @@
-import React from "react";
-import "./assets/css/styles.css";
+import React from 'react';
+import './assets/css/styles.css';
 
 // importar componentes
 

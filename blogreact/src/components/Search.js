@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Slider from "./Slider";
-import Sidebar from "./Sidebar";
-import Articles from "./Articles";
+import Slider from './Slider';
+import Sidebar from './Sidebar';
+import Articles from './Articles';
 
 class Search extends Component {
 

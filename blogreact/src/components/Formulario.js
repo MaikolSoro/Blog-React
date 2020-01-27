@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Sidebar from "./Sidebar";
+import React, { Component } from 'react';
+import Sidebar from './Sidebar';
 
 class Formulario extends Component {
   nombreRef = React.createRef();

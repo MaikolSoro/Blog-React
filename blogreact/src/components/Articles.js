@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import axios from "axios";
+import axios from 'axios';
 import Global from '../Global';
-import imagen from "../assets/images/default.png";
+import imagen from '../assets/images/default.png';
 import Moment from 'react-moment';
 import 'moment/locale/es';
 
