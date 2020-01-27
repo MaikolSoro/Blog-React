@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Global from "../Global";
 import Sidebar from "./Sidebar";
@@ -63,8 +63,8 @@ class Article extends Component {
               <p>
                {article.content}
               </p>
-              <a href ="#" className="btn btn-danger">Eliminar</a>
-              <a href ="#" className="btn btn-warning">Editar</a>
+              <Link to="/blog" className="btn btn-danger">Eliminar</Link>
+              <Link to="/blog" className="btn btn-warning">Editar</Link>
 
 
               <div className="clearfix" />

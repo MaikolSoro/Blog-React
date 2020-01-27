@@ -7,6 +7,8 @@ import Sidebar from "./Sidebar";
 // validacion de los formularios y alertas
 class CrearArticle extends Component {
 
+    url = Global.url;
+
     titleRef = React.createRef();
     contentRef = React.createRef();
     
@@ -28,9 +30,32 @@ class CrearArticle extends Component {
 
       // Rellenar  state con el formulario
       this.changeState();
+
+      // Hacer una peteción http por post para guardar los artículos.
+      axios.post(this.url+'save',this.state.article).then(res=>{
+                if(res.data.article){
+                    this.setState({
+
+                        article:res.data.article,
+                        status:'success'
+                    });
+                }else{
+
+                    this.setState({
+                        status:'failed'
+                        
+                     });
+                }
+      });
     }
    
   render() {
+  // Hacemos una redirección
+
+    if(this.state.status === 'success'){
+       
+        return <Redirect to="/blog"/>
+    }
     return (
       <div className="center">
         <section id="content">
