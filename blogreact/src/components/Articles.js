@@ -13,15 +13,15 @@ class Articles extends Component {
   state = {
     articles: [],
     status: null
-  }
+  };
 
-  componentDidMount() {
+  componentWillMount() {
     {
       /*Antes de imprimir la vista cargame el metodo*/
     }
     var home = this.props.home;
     var search = this.props.search;
-    if(home){
+    if(home === 'true'){
       this.getLastArticles();
 
     }else if(search && search !== null && search !== undefined){
@@ -31,37 +31,41 @@ class Articles extends Component {
     }
   
   }
-  getArticles = () => {
-    axios.get(this.url+"articles").then(res => {
-      this.setState({
-        articles: res.data.articles,
-        status: "success"
-      });
-     
-    });
-    
-  };
   getLastArticles = () => {
-    axios.get(this.url+"articles/last").then(res => {
+    axios.get(this.url+"articles/last")
+    .then(res => {
       this.setState({
         articles: res.data.articles,
-        status: "success"
+        status: 'success'
+      });
+     
+    });
+    
+  }
+
+  getArticles = () => {
+    axios.get(this.url+"articles")
+    .then(res => {
+      this.setState({
+        articles: res.data.articles,
+        status: 'success'
       });
      
     });
     
   };
+  
   getArticlesBySearch = (searched) => {
     axios.get(this.url+"search/"+ searched).then(res => {
        
             this.setState({
                 articles: res.data.articles,
-                status: "success"
+                status: 'success'
               });
             }).catch(err =>{
                 this.setState({
                     articles: [],
-                    status: "success"
+                    status: 'success'
                   });
               });
    
@@ -72,15 +76,15 @@ class Articles extends Component {
 
      var listArticles = this.state.articles.map((article)=>{
         return(
-            <article key={article._id}className="article-item" id="article-template">
-            <div class="image-wrap">
+            <article key={article._id} className="article-item" id="article-template">
+            <div className="image-wrap">
 
             {article.image !== null ?(
 
                 <img src={this.url+'get-image/'+ article.image} alt={article.title} />
 
 
-            ):(
+            ) :(
                 <img src={imagen} alt={article.title} />
             )
             
@@ -91,7 +95,7 @@ class Articles extends Component {
                 <span className="date">
                <Moment locale="es" fromNow>{article.date}</Moment>
                 </span>
-             <Link to={'/blog/articulo/'+article._id}>Leer más</Link>
+             <Link to={'/blog/articulo/'+ article._id}>Leer más</Link>
 
              <div className="clearfix"></div>
         </article>
@@ -103,7 +107,7 @@ class Articles extends Component {
           <h1>{listArticles}</h1>
         </div>
       );
-    } else if (this.state.articles.length === 0 && this.state.status === "success") {
+    } else if (this.state.articles.length === 0 && this.state.status === 'success') {
       return (
         <div id="articles">
           <h2 className="subheader">No hay artículos para mostrar</h2>

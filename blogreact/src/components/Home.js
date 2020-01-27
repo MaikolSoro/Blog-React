@@ -11,7 +11,7 @@ class Home extends Component {
         btn="Ir al blog"/>
         <div className="center">
           <div id="content">
-            <h1 className="subheader">Últimos articulos</h1>
+            <h1 className="subheader">Últimos artículos</h1>
             <Articles
             home="true"
             />

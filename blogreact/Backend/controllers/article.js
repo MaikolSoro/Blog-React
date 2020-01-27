@@ -96,7 +96,7 @@ getArticles: (req, res) => {
         query.limit(5);
     } 
     // find
-    query.sort('-id').exec((err,articles)=>{
+    query.sort('-_id').exec((err,articles)=>{
         if(err){
             return res.status(500).send({
                 status: 'error',

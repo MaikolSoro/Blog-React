@@ -14,7 +14,8 @@ class CrearArticle extends Component {
     
     state = {
         user: {},
-        status:null
+        status:null,
+        selectedFile : null
       };
 
       changeState= ()=>{
@@ -37,8 +38,51 @@ class CrearArticle extends Component {
                     this.setState({
 
                         article:res.data.article,
-                        status:'success'
+                        status:'waiting'
                     });
+
+                    // Subir la imagen
+                    if(this.state.selectedFile !== null){
+
+                        {/* Para subir la imagen antes hay que hacer algunas cosas
+                         1. Sacar  el id del articulo guardado.
+                         2. Crear form data y añadir  fichero.
+                         3. Petición al ajax. */}
+
+                         // sacamos el id del articlo
+                         var articleId = this.state.article._id;
+                          
+                         // Se crea el form data
+                         const formData = new FormData();
+
+                         formData.append(
+                            'file0',
+                            this.state.selectedFile,
+                            this.state.selectedFile.name
+                         );
+
+                         // Petición de ajax por post por http
+                          axios.post(this.url+'upload-image/' + articleId,formData).then(res=>{
+                                if(res.data.article){
+                                    this.setState({
+
+                                        article:res.data.article,
+                                        status:'success'
+                                    });
+                                }else{
+                                    this.setState({
+                                        article:res.data.article,
+                                        status:'failed'
+                                    });
+                                }
+                          });
+
+                    }else{
+                        this.setState({
+                            status:'success'
+                            
+                         });
+                    }
                 }else{
 
                     this.setState({
@@ -48,7 +92,12 @@ class CrearArticle extends Component {
                 }
       });
     }
-   
+   fileChange = (event) =>{
+    this.setState({
+       selectedFile: event.target.files[0]
+        
+     });
+   }
   render() {
   // Hacemos una redirección
 
@@ -74,7 +123,7 @@ class CrearArticle extends Component {
 
           <div className="form-group">
           <label htmlFor="File0">Imagen</label>
-          <input type="file" name="file0"></input>
+          <input type="file" name="file0" onChange={this.fileChange}></input>
           </div>
             <input type="submit" value ="Guardar" className="btn btn-success"/>
           </form>
