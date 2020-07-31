@@ -1,28 +1,38 @@
-'use strict'
+"use strict";
 
-var express = require('express');
+import { Router } from "express";
 
-var ArticleController = require('../controllers/article');
-var router = express.Router();
+import {
+  datosBlog,
+  test,
+  save,
+  getArticles,
+  getArticle,
+  update,
+  delete as Delete,
+  upload,
+  getImage,
+  search,
+} from "../controllers/article";
 
-var multipart = require('connect-multiparty');
+const router = Router();
 
-var md_upload = multipart({ uploadDir: './upload/articles'});
+import multipart from "connect-multiparty";
+
+const md_upload = multipart({ uploadDir: "./upload/articles" });
 
 // Rutas de prueba
-router.post('/datos-blog', ArticleController.datosBlog);
-router.get('/test-de-controlador', ArticleController.test);
-
-
+router.post("/datos-blog", datosBlog);
+router.get("/test-de-controlador", test);
 
 //Rutas utiles
-router.post('/save', ArticleController.save);
-router.get('/articles/:last?', ArticleController.getArticles);
-router.get('/article/:id', ArticleController.getArticle);
-router.put('/article/:id', ArticleController.update);
-router.delete('/article/:id', ArticleController.delete);
-router.post('/upload-image/:id?', md_upload, ArticleController.upload);
-router.get('/get-image/:image', ArticleController.getImage);
-router.get('/search/:search', ArticleController.search);
+router.post("/save", save);
+router.get("/articles/:last?", getArticles);
+router.get("/article/:id", getArticle);
+router.put("/article/:id", update);
+router.delete("/article/:id", Delete);
+router.post("/upload-image/:id?", md_upload, upload);
+router.get("/get-image/:image", getImage);
+router.get("/search/:search", search);
 
-module.exports = router;
+export default router;
