@@ -1,24 +1,33 @@
 # Blog ReactJS 📰
 
-Blog de react con node.js y mongodb.
-
+React blog with node.js and mongodb.
 ## Instalación
-
-### Requisitos
+## 🚀 Installation
+   ## Prerequisites
+ 
+   - Node 12 LTS. 
+    
+ ## Installation
+  - fork and  ```clone``` the repository to your account or download the latest release.
+  - Open the cloned repository on your machine.
+  - Run  ```npm install``` to get all the dependencies.
+  - Run ```npm run start ``` and navigate to ```http://localhost:3000/```
+  
+### Requirements
 
 1. Backend:
 
 - `cd blogreact`.
 - `cd Backend`.
-- Escribir: ``npm install``.
-- Correr: ``npm run start``.
+- Write: ``npm install``.
+- Run: ``npm run start``.
 
 2. Frontend:
 
 - `cd blogreact`.
 - `cd Frontend`.
-- Escribir: ``npm install``.
-- Correr: ``npm run start``.
+- Write: ``npm install``.
+- Run: ``npm run start``.
 
 ## Licencia
 
