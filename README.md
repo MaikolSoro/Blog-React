@@ -28,6 +28,6 @@ React blog with node.js and mongodb.
 - Write: ``npm install``.
 - Run: ``npm run start``.
 
-## Licencia
+## License
 
 [MIT](https://opensource.org/licenses/MIT)
