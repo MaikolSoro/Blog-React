@@ -1,7 +1,6 @@
 # Blog ReactJS 📰
 
 React blog with node.js and mongodb.
-## Instalación
 ## 🚀 Installation
    ## Prerequisites
  
