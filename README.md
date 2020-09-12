@@ -6,6 +6,7 @@ React blog with node.js and mongodb.
  
    - Node 12 LTS. 
     
+    
  ## Installation
   - fork and  ```clone``` the repository to your account or download the latest release.
   - Open the cloned repository on your machine.
